@@ -25,11 +25,17 @@ Install_Git() {
 	apt-get install git		
 }
 Install_MongoDB() {
-	echo "[-] Install MONGO"
+	echo "Step 1:  Import the MongoDB public key" 
 	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-	echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-	apt-get install mongodb-org -y
-	service mongod start
+	
+	echo "Step 2: Generate a file with the MongoDB repository url"
+	echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+	
+	echo "Step 3: Refresh the local database with the packages"
+	apt-get update
+	
+	echo "Step 4: Install the last stable MongoDB version and all the necessary packages on our system"
+	apt-get install mongodb
 }
 #Upddate_System
 #Install_Node
