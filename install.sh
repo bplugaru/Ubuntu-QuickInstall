@@ -46,9 +46,10 @@ Install_Cmd() {
 	.~/.bashrc
 }
 pathadd() {
+	echo $1
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
         PATH="${PATH:+"$PATH:"}$1"
-        #echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
+        echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
     fi
 }
 
