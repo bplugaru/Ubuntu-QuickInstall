@@ -45,4 +45,5 @@ Install_Cmd() {
 #Upddate_System
 #Install_Node
 #Install_Git
-Install_MongoDB
+#Install_MongoDB
+Install_Cmd
