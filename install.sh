@@ -37,21 +37,20 @@ Install_MongoDB() {
 	echo "Step 4: Install the last stable MongoDB version and all the necessary packages on our system"
 	apt-get install mongodb
 }
-
+pathadd() {
+	echo "add to path $1"
+    if [ -d "$1" ] && [[ ! $PATH =~ (^|:)$1(:|$) ]]; then
+        PATH+=:$1
+    fi
+}
 Install_Cmd() {
 	mkdir -p ~/bin
 	curl "https://raw.githubusercontent.com/bplugaru/Ubuntu-QuickInstall/master/cmd.sh" > ~/bin/edin-setup
 	chmod +x ~/bin/edin-setup
 	pathadd ~/bin
-	.~/.bashrc
+	source ~/.bashrc
 }
-pathadd() {
-	echo $1
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-        echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
-    fi
-}
+
 
 #Upddate_System
 #Install_Node
