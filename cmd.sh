@@ -1,1 +1,2 @@
-echo "cmd"
+#!/bin/bash
+echo "test execute"
