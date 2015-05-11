@@ -41,6 +41,7 @@ pathadd() {
 	echo "add to path $1"
     if [ -d "$1" ] && [[ ! $PATH =~ (^|:)$1(:|$) ]]; then
         PATH+=:$1
+        export PATH
     fi
 }
 Install_Cmd() {
