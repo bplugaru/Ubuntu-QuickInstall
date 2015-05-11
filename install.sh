@@ -40,7 +40,9 @@ Install_MongoDB() {
 
 Install_Cmd() {
 	mkdir -p ~/bin
-	curl "https://raw.githubusercontent.com/bplugaru/Ubuntu-QuickInstall/master/cmd.sh" > ~/bin/cmd
+	curl "https://raw.githubusercontent.com/bplugaru/Ubuntu-QuickInstall/master/cmd.sh" > ~/bin/edin-setup
+	chmod +x ~/bin/edin-setup
+	echo  'export PATH=$PATH:~/bin' >> ~/.bashrc
 }
 #Upddate_System
 #Install_Node
