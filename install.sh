@@ -42,8 +42,16 @@ Install_Cmd() {
 	mkdir -p ~/bin
 	curl "https://raw.githubusercontent.com/bplugaru/Ubuntu-QuickInstall/master/cmd.sh" > ~/bin/edin-setup
 	chmod +x ~/bin/edin-setup
-	echo  'export PATH=$PATH:~/bin' >> ~/.bashrc
+	pathadd ~/bin
+	.~/.bashrc
 }
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+        #echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
+    fi
+}
+
 #Upddate_System
 #Install_Node
 #Install_Git
