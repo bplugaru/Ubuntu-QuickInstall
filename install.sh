@@ -18,6 +18,8 @@ Install_Node() {
 	npm install pm2 -g
 	echo "[-] Install Bower"
 	npm install bower -g
+	echo "[-] Instal Edin CLI"
+	npm install -g npm install edin-cli
 }
 
 Install_Git() {
@@ -37,21 +39,9 @@ Install_MongoDB() {
 	echo "Step 4: Install the last stable MongoDB version and all the necessary packages on our system"
 	apt-get install mongodb
 }
-pathadd() {
-	echo "add to path $1"
-    if [ -d "$1" ] && [[ ! $PATH =~ (^|:)$1(:|$) ]]; then
-        PATH+=:$1
-        export PATH
-    fi
-}
-Install_Cmd() {
-	mkdir -p ~/bin
-	npm install -g npm install edin-cli
-}
 
 
-#Upddate_System
-#Install_Node
-#Install_Git
-#Install_MongoDB
-Install_Cmd
+Upddate_System
+Install_Node
+Install_Git
+Install_MongoDB
