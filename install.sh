@@ -46,10 +46,7 @@ pathadd() {
 }
 Install_Cmd() {
 	mkdir -p ~/bin
-	curl "https://raw.githubusercontent.com/bplugaru/Ubuntu-QuickInstall/master/cmd.sh" > ~/bin/edin-setup
-	chmod +x ~/bin/edin-setup
-	pathadd ~/bin
-	source ~/.bashrc
+	npm install -g npm install edin-cli
 }
 
 
