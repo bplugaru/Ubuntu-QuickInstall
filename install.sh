@@ -8,6 +8,10 @@ Upddate_System() {
 	echo "[-] Upgrading Packages"
 	apt-get upgrade -y
 }
+Install_Nginix() {
+	echo "[-] Install Ngnix"
+	apt-get install nginx -y
+}
 
 Install_Node() {
 	echo "[-] Install NodeJS"
@@ -35,9 +39,11 @@ Install_MongoDB() {
 	apt-get update
 	
 	echo "Step 4: Install the last stable MongoDB version and all the necessary packages on our system"
-	apt-get install mongodb
+	apt-get install mongodb-org -y
 }
-#Upddate_System
-#Install_Node
-#Install_Git
+
+Upddate_System
+Install_Nginix
+Install_Node
+Install_Git
 Install_MongoDB
