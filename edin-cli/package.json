@@ -1,0 +1,22 @@
+{
+  "name": "edin-cli",
+  "version": "0.0.31",
+  "description": "The edin command line interface",
+  "scripts": {
+    "publish-edin": "npm version patch && npm publish"
+  },
+  "author": "Bogdan Plugaru",
+  "licenses": "MIT",
+  "bin": {
+    "edin": "./bin/edin"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "commander": "^2.8.1",
+    "q": "^1.4.0"
+  }
+}
