@@ -3,7 +3,7 @@
 var q = require('q'),
     program = require('commander'),
     pj = require('./package.json'),
-    setup = require('./lib/setup')
+    Setup = require('./lib/setup')
     ;
 
 
@@ -17,7 +17,8 @@ function main(args, callback, errback) {
       defferd.reject('host it\'s required');
     }
     //
-    setup().run(host).done(function(result){
+  
+		Setup(host).run().done(function(result){
       console.log("done");
     }, function(error){
       console.log(error);

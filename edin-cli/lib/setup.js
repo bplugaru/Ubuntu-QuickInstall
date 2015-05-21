@@ -1,40 +1,43 @@
 'use strict';
 
-var q = require("q");
+var q = require('q'),
+		shell = require('shell');
 
-function Setup() {
+function Setup(host) {
+		var user;
+		
+		function validateHost() {
+				var re = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
+				if(!re.test(host)){
+					throw new Error("host is invalid");
+				}
+		}
 
-  function validateHost(host) {
-    var re = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
-    if(!re.test(host)){
-      throw new Error("host is invalid");
-    }
-  }
-
-  function generateUser(host) {
-
+  function generateUser() {
+			user = host.replace(/\./g,'_');
   }
 
   function cloneEdin() {
-
+			console.log(user);
   }
 
-  function run(host) {
-    return q.fcall(validateHost, host)
-    .then(generateUser,host);
+  function run() {
+    return q.fcall(validateHost)
+    .then(generateUser)
+		.then(cloneEdin);
   }
 
-  return {
+  return { 
     run : run
   };
 };
 
-  //create user
-  //git clone edin
-  //generate certificate for mongod
-  //generate certificate for user
-  //config nginx
-  //test site
+//create user
+//git clone edin
+//generate certificate for mongod
+//generate certificate for user
+//config nginx
+//test site
 
 
 
